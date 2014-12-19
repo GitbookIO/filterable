@@ -8,6 +8,7 @@ global.assertObjects = function(o1, o2) {
 };
 
 global.filter = new Filterable({
+    tagsFields: ["description"],
     fields: {
         "name": {
             type: String

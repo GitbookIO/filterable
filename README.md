@@ -76,7 +76,7 @@ filterable.query("cats followers:>10");
 Generate list of tags from a text content. You'll just need to index this array of string into the object.
 
 ```js
-filterable.indexTags("Hello World");
+filterable.tags("Hello World");
 
 ["hello", "world"]
 ```
@@ -84,7 +84,7 @@ filterable.indexTags("Hello World");
 Generate list of tags using searchable fields:
 
 ```js
-filterable.indexTags({
+filterable.tags({
     name: "Samy",
     username: "SamyPesse",
     description: "This is my profile"
