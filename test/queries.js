@@ -27,12 +27,20 @@ describe('Queries', function() {
         assertObjects(filter.query("cat"), { tags: { '$in': ["cat"] } });
     });
 
+    it('can convert multiple tags', function() {
+        assertObjects(filter.query("cat garfield"), { tags: { '$in': ["cat", "garfield"] } });
+    });
+
     it('can invert tags', function() {
         assertObjects(filter.query("NOT cat"), { tags: { '$nin': ["cat"] } });
     });
 
     it('can handle tags and inverted tags', function() {
         assertObjects(filter.query("dogs NOT cat"), { tags: { '$in': ["dogs"], '$nin': ["cat"] } });
+    });
+
+    it('can handle multiple tags and inverted tags', function() {
+        assertObjects(filter.query("dogs rataplan NOT cat NOT garfield"), { tags: { '$in': ["dogs", "rataplan"], '$nin': ["cat", "garfield"] } });
     });
 
     it('can handle tags and comparaison', function() {
