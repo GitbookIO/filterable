@@ -6,7 +6,7 @@
         "name": "Samy Pessé",
         "email": "samypesse@gmail.com"
     },
-    "description": "Convert string to mongo type filters",
+    "description": "Parse GitHub-like search queries",
     "bugs": {
         "url": "https://github.com/SamyPesse/strfilter/issues"
     },
