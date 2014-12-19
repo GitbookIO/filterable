@@ -12,9 +12,9 @@ This module is perfect to integrates complex search (like GitHub) into your appl
 | Type | Example |
 | ---- | ------- |
 | Query for tags | `cat` |
-| Query for multiple tags | `cat dog` |
+| Query for multiple tags | `cat dog`, `"Hello World"` |
 | Exclude results containing a certain word | `cat NOT dog` |
-| Query for equality | `username:Samypesse` |
+| Query for equality | `username:Samypesse`, `name:"Samy Pesse"` |
 | Query for values greater than another value | `stars:>10`, `stars:>=10` |
 | Query for values less than another value | `stars:<100`, `stars:<=100` |
 | Mix query for tags and condition | `cat stars:>10 stars:<100` |
