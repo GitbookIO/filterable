@@ -18,9 +18,9 @@ $ npm install filterable
 Create a filterable type of object:
 
 ```js
-var Filterable = require("filterable");
+var filterable = require("filterable");
 
-var filterable = new Filterable({
+var filterable = new filterable.Filterable({
     // Fields containing search tags (defaukt is "tags")
     tags: "tags",
 
@@ -101,7 +101,7 @@ filterable.tags({
 
 This module contains a plugin for [mongoose](https://github.com/LearnBoost/mongoose):
 
-```
+```js
 userSchema.plugin(filterable.mongoose, {
     tags: "tags",
     fields: ["username", "name", "location"],
