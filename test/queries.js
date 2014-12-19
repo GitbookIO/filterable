@@ -1,10 +1,10 @@
 describe('Queries', function() {
     it('can convert =', function() {
-        assertObjects(filter.query("name:Samy"), { name: { '$eq': 'Samy' } });
+        assertObjects(filter.query("name:Samy"), { name: 'Samy' });
     });
 
     it('can convert NOT', function() {
-        assertObjects(filter.query("NOT name:Samy"), { name: { '$neq': 'Samy' } });
+        assertObjects(filter.query("NOT name:Samy"), { name: { '$ne': 'Samy' } });
     });
 
     it('can convert >=', function() {
@@ -12,7 +12,7 @@ describe('Queries', function() {
     });
 
     it('can alias field', function() {
-        assertObjects(filter.query("mail:samypesse@gmail.com"), { email: { '$eq': "samypesse@gmail.com" } });
+        assertObjects(filter.query("mail:samypesse@gmail.com"), { email: "samypesse@gmail.com" });
     });
 
     it("can't accept invalid fields", function() {

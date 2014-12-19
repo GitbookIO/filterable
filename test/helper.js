@@ -1,6 +1,6 @@
 var assert = require('assert');
 var hash = require('object-hash');
-var Filterable = require("../lib");
+var Filterable = require("../lib").Filterable;
 
 global.assertObjects = function(o1, o2) {
     //console.log(o1);
