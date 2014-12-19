@@ -65,4 +65,12 @@ describe('Queries', function() {
             }
         });
     });
+
+    it('can handle multiples conditions and tags', function() {
+        assertObjects(filter.query("cat NOT dog followers:>=100 stars:<=200"), {
+            tags: { '$in': [ 'cat' ], '$nin': [ 'dog' ] },
+            followers: { '$lte': 100 },
+            stars: { '$gte': 200 }
+        });
+    });
 });
