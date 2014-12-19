@@ -27,6 +27,14 @@ describe('Queries', function() {
         assertObjects(filter.query("cat"), { tags: { '$in': ["cat"] } });
     });
 
+    it('can invert tags', function() {
+        assertObjects(filter.query("NOT cat"), { tags: { '$nin': ["cat"] } });
+    });
+
+    it('can handle tags and inverted tags', function() {
+        assertObjects(filter.query("dogs NOT cat"), { tags: { '$in': ["dogs"], '$nin': ["cat"] } });
+    });
+
     it('can alias field', function() {
         assertObjects(filter.query("mail:samypesse@gmail.com"), { email: "samypesse@gmail.com" });
     });
