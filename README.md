@@ -48,6 +48,8 @@ var filterable = new Filterable({
 });
 ```
 
+#### Queries
+
 Generate a mongo query from a string:
 
 ```js
@@ -73,6 +75,8 @@ filterable.query("cats followers:>10");
 }
 ```
 
+#### Tags
+
 Generate list of tags from a text content. You'll just need to index this array of string into the object.
 
 ```js
@@ -91,5 +95,20 @@ filterable.tags({
 });
 
 ["samy", "samypesse", "this", "is", "my", "profile"]
+```
+
+#### Mongoose
+
+This module contains a plugin for [mongoose](https://github.com/LearnBoost/mongoose):
+
+```
+userSchema.plugin(filterable.mongoose, {
+    tags: "tags",
+    fields: ["username", "name", "location"],
+    tagsFields: [ "description" ]
+    alias: {
+        "username": "userId"
+    }
+});
 ```
 

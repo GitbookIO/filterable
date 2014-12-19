@@ -26,5 +26,8 @@
     },
     "scripts": {
         "test": "mocha --reporter list"
-    }
+    },
+    "keywords": [
+        "github", "mongoose", "mongodb", "search", "filter", "query"
+    ]
 }
