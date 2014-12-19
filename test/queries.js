@@ -3,6 +3,10 @@ describe('Queries', function() {
         assertObjects(filter.query("name:Samy"), { name: 'Samy' });
     });
 
+    it('can convert = with quotation marks', function() {
+        assertObjects(filter.query('name:"Samy Pesse"'), { name: 'Samy Pesse' });
+    });
+
     it('can convert NOT', function() {
         assertObjects(filter.query("NOT name:Samy"), { name: { '$ne': 'Samy' } });
     });
@@ -31,6 +35,10 @@ describe('Queries', function() {
         assertObjects(filter.query("cat"), { tags: { '$in': ["cat"] } });
     });
 
+    it('can convert tags with quotation', function() {
+        assertObjects(filter.query('"hello world"'), { tags: { '$in': ["hello", "world"] } });
+    });
+
     it('can convert multiple tags', function() {
         assertObjects(filter.query("cat garfield"), { tags: { '$in': ["cat", "garfield"] } });
     });
@@ -49,6 +57,7 @@ describe('Queries', function() {
 
     it('can handle tags and comparaison', function() {
         assertObjects(filter.query("cats followers:>10"), { tags: { '$in': [ 'cats' ] }, followers: { '$gt': 10 } });
+        assertObjects(filter.query("followers:>10 cats"), { tags: { '$in': [ 'cats' ] }, followers: { '$gt': 10 } });
     });
 
     it('can alias field', function() {
