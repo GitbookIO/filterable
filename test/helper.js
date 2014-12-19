@@ -3,7 +3,7 @@ var hash = require('object-hash');
 var Filterable = require("../lib").Filterable;
 
 global.assertObjects = function(o1, o2) {
-    //console.log(o1);
+    //console.log(o1, o2);
     assert.equal(hash.sha1(o1), hash.sha1(o2));
 };
 

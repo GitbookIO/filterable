@@ -11,6 +11,22 @@ describe('Queries', function() {
         assertObjects(filter.query("followers:>=100"), { followers: { '$gte': 100 } });
     });
 
+    it('can convert <=', function() {
+        assertObjects(filter.query("followers:<=100"), { followers: { '$lte': 100 } });
+    });
+
+    it('can convert >', function() {
+        assertObjects(filter.query("followers:>100"), { followers: { '$gt': 100 } });
+    });
+
+    it('can convert <', function() {
+        assertObjects(filter.query("followers:<100"), { followers: { '$lt': 100 } });
+    });
+
+    it('can convert tags', function() {
+        assertObjects(filter.query("cat"), { tags: { '$in': ["cat"] } });
+    });
+
     it('can alias field', function() {
         assertObjects(filter.query("mail:samypesse@gmail.com"), { email: "samypesse@gmail.com" });
     });
