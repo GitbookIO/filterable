@@ -7,6 +7,10 @@ describe('Queries', function() {
         assertObjects(filter.query("NOT name:Samy"), { name: { '$ne': 'Samy' } });
     });
 
+    it('can convert NOT (only next condition)', function() {
+        assertObjects(filter.query("NOT name:Samy followers:10"), { name: { '$ne': 'Samy' }, followers: 10 });
+    });
+
     it('can convert >=', function() {
         assertObjects(filter.query("followers:>=100"), { followers: { '$gte': 100 } });
     });
@@ -69,8 +73,8 @@ describe('Queries', function() {
     it('can handle multiples conditions and tags', function() {
         assertObjects(filter.query("cat NOT dog followers:>=100 stars:<=200"), {
             tags: { '$in': [ 'cat' ], '$nin': [ 'dog' ] },
-            followers: { '$lte': 100 },
-            stars: { '$gte': 200 }
+            followers: { '$gte': 100 },
+            stars: { '$lte': 200 }
         });
     });
 });
