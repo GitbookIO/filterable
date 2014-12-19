@@ -35,6 +35,10 @@ describe('Queries', function() {
         assertObjects(filter.query("dogs NOT cat"), { tags: { '$in': ["dogs"], '$nin': ["cat"] } });
     });
 
+    it('can handle tags and comparaison', function() {
+        assertObjects(filter.query("cats followers:>10"), { tags: { '$in': [ 'cats' ] }, followers: { '$gt': 10 } });
+    });
+
     it('can alias field', function() {
         assertObjects(filter.query("mail:samypesse@gmail.com"), { email: "samypesse@gmail.com" });
     });
