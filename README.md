@@ -1,6 +1,6 @@
 # Filterable
 
-Filterable is a Node.JS module to parse GitHub like queries, for example: `cats stars:>10`. It can generates mongodb queries.
+Filterable is a Node.JS module to parse GitHub-like search queries, for example: `cats stars:>10`. It can generates mongoDB queries.
 
 ### How to install it?
 
