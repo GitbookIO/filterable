@@ -12,8 +12,9 @@ global.filter = new Filterable({
         "name": {
             type: String
         },
-        "email": {
-            type: String
+        "mail": {
+            type: String,
+            alias: "email"
         },
         "username": {
             type: String

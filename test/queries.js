@@ -11,6 +11,10 @@ describe('Queries', function() {
         assertObjects(filter.query("followers:>=100"), { followers: { '$gte': 100 } });
     });
 
+    it('can alias field', function() {
+        assertObjects(filter.query("mail:samypesse@gmail.com"), { email: { '$eq': "samypesse@gmail.com" } });
+    });
+
     it("can't accept invalid fields", function() {
         assertObjects(filter.query("followers:>=100 invalid:test"), { followers: { '$gte': 100 } });
     });
