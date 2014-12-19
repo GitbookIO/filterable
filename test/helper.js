@@ -8,8 +8,20 @@ global.assertObjects = function(o1, o2) {
 
 global.filter = new Filterable({
     fields: {
-        "name": {},
-        "email": {},
-        "username": {}
+        "name": {
+            type: String
+        },
+        "email": {
+            type: String
+        },
+        "username": {
+            type: String
+        },
+        "followers": {
+            type: Number
+        },
+        "stars": {
+            type: Number
+        }
     }
 });
