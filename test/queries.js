@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 describe('Queries', function() {
     it('can convert =', function() {
         assertObjects(filter.query("name:Samy"), { name: 'Samy' });
@@ -85,5 +87,13 @@ describe('Queries', function() {
             followers: { '$gte': 100 },
             stars: { '$lte': 200 }
         });
+    });
+
+    it('can detect complete queries', function() {
+        assert(filter.query("followers:>=100", {mongo: false}).isComplete());
+    });
+
+    it('can detect non-complete queries', function() {
+        assert(!filter.query("followers:>=100 invalid:test", {mongo: false}).isComplete());
     });
 });
