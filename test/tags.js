@@ -33,4 +33,13 @@ describe('Tags', function() {
             }), "profile")
         );
     });
+
+    it('can generate tags using alias', function() {
+        assert(
+            _.contains(filter.tags({
+                name: "Samy",
+                email: "samypesse@gmail.com"
+            }), "samypesse@gmail")
+        );
+    });
 });
