@@ -21,7 +21,7 @@ Create a filterable type of object:
 var filterable = require("filterable");
 
 var filterable = new filterable.Filterable({
-    // Fields containing search tags (defaukt is "tags")
+    // Fields containing search tags (default is "tags")
     tags: "tags",
 
     // Fields to use for indexation, extend the Strign fields
