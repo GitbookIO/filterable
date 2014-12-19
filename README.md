@@ -7,13 +7,26 @@ Filterable is a Node.JS module to parse [GitHub-like search queries](https://hel
 
 This module is perfect to integrates complex search (like GitHub) into your application. It integrates perfectly with MongoDB but can also easily be adapted to other databases.
 
-### How to install it?
+### Queries
+
+| Type | Example |
+| ---- | ------- |
+| Query for tags | `cat` |
+| Query for multiple tags | `cat dog` |
+| Exclude results containing a certain word | `cat NOT dog` |
+| Query for equality | `username:Samypesse` |
+| Query for values greater than another value | `stars:>10`, `stars:>=10` |
+| Query for values less than another value | `stars:<100`, `stars:<=100` |
+| Mix query for tags and condition | `cat stars:>10 stars:<100` |
+| Filter qualifiers based on exclusion | `cats stars:>10 NOT language:javascript` |
+
+### How to use it?
+
+Install it using:
 
 ```
 $ npm install filterable
 ```
-
-### How to use it?
 
 Create a filterable type of object:
 
