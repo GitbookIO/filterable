@@ -4,11 +4,11 @@
     "main": "lib/index.js",
     "author": {
         "name": "Samy Pessé",
-        "email": "samypesse@gmail.com"
+        "email": "samy@gitbook.com"
     },
     "description": "Parse GitHub-like search queries",
     "bugs": {
-        "url": "https://github.com/SamyPesse/strfilter/issues"
+        "url": "https://github.com/GitbookIO/filterable/issues"
     },
     "engines": {
         "node": ">=0.6"
@@ -22,7 +22,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/SamyPesse/strfilter.git"
+        "url": "https://github.com/GitbookIO/filterable.git"
     },
     "scripts": {
         "test": "mocha --reporter list"
