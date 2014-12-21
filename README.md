@@ -56,6 +56,12 @@ var filterable = new filterable.Filterable({
         },
         followers: {
             type: Number
+        },
+        language: {
+            type: String,
+
+            // Alias could also be an array
+            alias: ["language_detected", "language_settings"]
         }
     }
 });
