@@ -100,4 +100,30 @@ describe('Queries', function() {
     it('can detect non-complete queries', function() {
         assert(!filter.query("followers:>=100 invalid:test", {mongo: false}).isComplete());
     });
+
+    it('can handle multiple alias for equalities', function() {
+        assertObjects(filter.query("language:en"), {
+            '$or': [
+                {
+                    'settings_language': 'en'
+                },
+                {
+                    'detected_language': 'en'
+                }
+            ]
+        });
+    });
+
+    it('can handle multiple alias for > and <', function() {
+        assertObjects(filter.query("views:>10"), {
+            '$or': [
+                {
+                    'views1': {"$gt": 10}
+                },
+                {
+                    'views2': {"$gt": 10}
+                }
+            ]
+        });
+    });
 });

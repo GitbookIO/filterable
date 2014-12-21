@@ -30,6 +30,14 @@ global.filter = new Filterable({
         },
         "stars": {
             type: Number
+        },
+        "language": {
+            type: String,
+            alias: ["settings_language", "detected_language"]
+        },
+        "views": {
+            type: Number,
+            alias: ["views1", "views2"]
         }
     }
 });
