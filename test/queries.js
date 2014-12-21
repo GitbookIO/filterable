@@ -63,7 +63,7 @@ describe('Queries', function() {
 
     it('can handle tags and comparaison', function() {
         assertObjects(filter.query("cats followers:>10"), { tags: { '$in': [ 'cats' ] }, followers: { '$gt': 10 } });
-        assertObjects(filter.query("followers:>10 cats"), { tags: { '$in': [ 'cats' ] }, followers: { '$gt': 10 } });
+        assertObjects(filter.query("followers:>10 cats"), { followers: { '$gt': 10 }, tags: { '$in': [ 'cats' ] } });
     });
 
     it('can alias field', function() {
@@ -137,6 +137,37 @@ describe('Queries', function() {
                 {
                     'views2': {"$gt": 10}
                 }
+            ]
+        });
+    });
+
+    it('can handle multiple condition for multiple alias for > and <', function() {
+        assertObjects(filter.query("views:>10 views:<100"), {
+            '$or': [
+                {
+                    'views1': {
+                        "$gt": 10,
+                        "$lt": 100
+                    }
+                },
+                {
+                    'views2': {
+                        "$gt": 10,
+                        "$lt": 100
+                    }
+                }
+            ]
+        });
+    });
+
+    it('can handle multiple fields with multiple alias', function() {
+        assertObjects(filter.query("views:>10 language:en"),
+        {
+            "$or":[
+                {"views1":{"$gt":10},"settings_language":"en"},
+                {"views1":{"$gt":10},"detected_language":"en"},
+                {"views2":{"$gt":10},"settings_language":"en"},
+                {"views2":{"$gt":10},"detected_language":"en"}
             ]
         });
     });
