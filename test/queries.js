@@ -114,6 +114,20 @@ describe('Queries', function() {
         });
     });
 
+    it('can handle multiple alias with other conditions', function() {
+        assertObjects(filter.query("language:en stars:100"), {
+            'stars': 100,
+            '$or': [
+                {
+                    'settings_language': 'en'
+                },
+                {
+                    'detected_language': 'en'
+                }
+            ]
+        });
+    });
+
     it('can handle multiple alias for > and <', function() {
         assertObjects(filter.query("views:>10"), {
             '$or': [
