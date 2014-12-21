@@ -33,6 +33,10 @@ describe('Queries', function() {
         assertObjects(filter.query("followers:<100"), { followers: { '$lt': 100 } });
     });
 
+    it('can mix < and >', function() {
+        assertObjects(filter.query("followers:<100 followers:>50"), { followers: { '$lt': 100, '$gt': 50 } });
+    });
+
     it('can convert tags', function() {
         assertObjects(filter.query("cat"), { tags: { '$in': ["cat"] } });
     });
