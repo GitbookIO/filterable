@@ -1,10 +1,15 @@
 var assert = require('assert');
+var util = require('util');
 var hash = require('object-hash');
 var Filterable = require("../lib").Filterable;
 
 global.assertObjects = function(o1, o2) {
     //console.log(o1, o2);
-    assert.equal(hash.sha1(o1), hash.sha1(o2));
+    try {
+        assert.equal(hash.sha1(o1), hash.sha1(o2));
+    } catch(e) {
+        throw ""+JSON.stringify(o1)+"  !=  "+JSON.stringify(o2);
+    }
 };
 
 global.filter = new Filterable({
