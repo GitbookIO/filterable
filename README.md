@@ -1,6 +1,6 @@
 # Filterable
 
-[![Build Status](https://travis-ci.org/SamyPesse/filterable.png?branch=master)](https://travis-ci.org/SamyPesse/filterable)
+[![Build Status](https://travis-ci.org/GitBookIO/filterable.png?branch=master)](https://travis-ci.org/GitBookIO/filterable)
 [![NPM version](https://badge.fury.io/js/filterable.svg)](http://badge.fury.io/js/filterable)
 
 Filterable is a Node.JS module to parse [GitHub-like search queries](https://help.github.com/articles/search-syntax/), for example: `cats stars:>10`. It can generates MongoDB queries.
