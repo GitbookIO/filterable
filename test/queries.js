@@ -171,4 +171,22 @@ describe('Queries', function() {
             ]
         });
     });
+
+    it('can handle $in for array', function() {
+        assertObjects(filter.query("subjects:test"),
+        {
+            "subjects": {
+                "$in": ["test"]
+            }
+        });
+    });
+
+    it('can handle $nin for array', function() {
+        assertObjects(filter.query("NOT subjects:test"),
+        {
+            "subjects": {
+                "$nin": ["test"]
+            }
+        });
+    });
 });

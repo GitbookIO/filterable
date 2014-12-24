@@ -34,6 +34,9 @@ global.filter = new Filterable({
         "views": {
             type: Number,
             alias: ["views1", "views2"]
+        },
+        "subjects": {
+            type: Array
         }
     }
 });
