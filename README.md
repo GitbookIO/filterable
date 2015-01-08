@@ -82,7 +82,7 @@ Generate a mongo query from a string:
 ```js
 filterable.query("mail:samypesse@gmail.com", function(err, query) {
     /*
-    query == {
+    query.toMongo() == {
         "email": {
             "$eq": "samypesse@gmail.com"
         }
@@ -95,7 +95,7 @@ filterable.query("mail:samypesse@gmail.com", function(err, query) {
 ```js
 filterable.query("cats followers:>10", function(err, query) {
     /*
-    query == {{
+    query.toMongo() == {{
         "tags": {
             "$in": ["cats"]
         },
