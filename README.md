@@ -72,26 +72,31 @@ var filterable = new filterable.Filterable({
 Generate a mongo query from a string:
 
 ```js
-filterable.query("mail:samypesse@gmail.com");
-
-{
-    "email": {
-        "$eq": "samypesse@gmail.com"
+filterable.query("mail:samypesse@gmail.com", function(err, query) {
+    /*
+    query == {
+        "email": {
+            "$eq": "samypesse@gmail.com"
+        }
     }
-}
+    */
+});
+
 ```
 
 ```js
-filterable.query("cats followers:>10");
-
-{
-    "tags": {
-        "$in": ["cats"]
-    },
-    "followers": {
-        "$gt": 10
+filterable.query("cats followers:>10", function(err, query) {
+    /*
+    query == {{
+        "tags": {
+            "$in": ["cats"]
+        },
+        "followers": {
+            "$gt": 10
+        }
     }
-}
+    */
+});
 ```
 
 #### Tags
