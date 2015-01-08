@@ -62,6 +62,14 @@ var filterable = new filterable.Filterable({
 
             // Alias could also be an array
             alias: ["language_detected", "language_settings"]
+        },
+        friends: {
+            type: String,
+
+            // Transform query value, 
+            value: function(value, next) {
+                getUserRef(value, next);
+            }
         }
     }
 });
@@ -72,26 +80,31 @@ var filterable = new filterable.Filterable({
 Generate a mongo query from a string:
 
 ```js
-filterable.query("mail:samypesse@gmail.com");
-
-{
-    "email": {
-        "$eq": "samypesse@gmail.com"
+filterable.query("mail:samypesse@gmail.com", function(err, query) {
+    /*
+    query.toMongo() == {
+        "email": {
+            "$eq": "samypesse@gmail.com"
+        }
     }
-}
+    */
+});
+
 ```
 
 ```js
-filterable.query("cats followers:>10");
-
-{
-    "tags": {
-        "$in": ["cats"]
-    },
-    "followers": {
-        "$gt": 10
+filterable.query("cats followers:>10", function(err, query) {
+    /*
+    query.toMongo() == {{
+        "tags": {
+            "$in": ["cats"]
+        },
+        "followers": {
+            "$gt": 10
+        }
     }
-}
+    */
+});
 ```
 
 #### Tags
@@ -128,6 +141,14 @@ userSchema.plugin(filterable.mongoose, {
     alias: {
         "username": "userId"
     }
+});
+```
+
+You can then run search query:
+
+```js
+User.search("username:test").count().exec(function(err, n) {
+    
 });
 ```
 

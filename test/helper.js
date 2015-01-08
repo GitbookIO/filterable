@@ -37,6 +37,14 @@ global.filter = new Filterable({
         },
         "subjects": {
             type: Array
+        },
+        "cofounder": {
+            alias: "associate",
+            value: function(username, next) {
+                setTimeout(function() {
+                    next(undefined, "_"+username);
+                }, 10);
+            }
         }
     }
 });

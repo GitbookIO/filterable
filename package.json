@@ -14,7 +14,8 @@
         "node": ">=0.6"
     },
     "dependencies": {
-        "lodash": "2.4.1"
+        "lodash": "2.4.1",
+        "q": "1.1.2"
     },
     "devDependencies": {
         "mocha": "1.18.2",
