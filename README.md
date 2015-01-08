@@ -62,6 +62,14 @@ var filterable = new filterable.Filterable({
 
             // Alias could also be an array
             alias: ["language_detected", "language_settings"]
+        },
+        friends: {
+            type: String,
+
+            // Transform query value, 
+            value: function(value, next) {
+                getUserRef(value, next);
+            }
         }
     }
 });
@@ -133,6 +141,14 @@ userSchema.plugin(filterable.mongoose, {
     alias: {
         "username": "userId"
     }
+});
+```
+
+You can then run search query:
+
+```js
+User.search("username:test").count().exec(function(err, n) {
+    
 });
 ```
 
