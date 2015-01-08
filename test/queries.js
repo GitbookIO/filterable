@@ -214,4 +214,11 @@ describe('Queries', function(done) {
             }
         }, done);
     });
+
+    it('can handle values middlewares', function(done) {
+        testQuery("cofounder:aaron",
+        {
+            "associate": "_aaron"
+        }, done);
+    });
 });
