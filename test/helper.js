@@ -45,6 +45,27 @@ global.filter = new Filterable({
                     next(undefined, "_"+username);
                 }, 10);
             }
+        },
+        "published": {
+            type: Boolean
+        },
+        "admin": {
+            type: Boolean,
+            alias: "isAdmin"
+        },
+        "gender": {
+            type: String
+        },
+        "male": {
+            type: Boolean,
+            query: "gender:male"
+        },
+        "age": {
+            type: Number
+        },
+        "minor": {
+            type: Boolean,
+            query:"age:<18"
         }
     }
 });
