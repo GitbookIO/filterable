@@ -221,4 +221,36 @@ describe('Queries', function(done) {
             "associate": "_aaron"
         }, done);
     });
+
+    describe('with inverted operators', function() {
+
+      it('can handle "NOT >"', function(done) {
+          testQuery('NOT stars:>10',
+          {
+            "stars": { "$lte": 10 }
+          }, done);
+      });
+
+      it('can handle "NOT <"', function(done) {
+          testQuery('NOT stars:<10',
+          {
+            "stars": { "$gte": 10 }
+          }, done);
+      });
+
+      it('can handle "NOT >="', function(done) {
+          testQuery('NOT stars:>=10',
+          {
+            "stars": { "$lt": 10 }
+          }, done);
+      });
+
+      it('can handle "NOT <="', function(done) {
+          testQuery('NOT stars:<=10',
+          {
+            "stars": { "$gt": 10 }
+          }, done);
+      });
+
+    });
 });
