@@ -16,7 +16,7 @@
   "dependencies": {
     "chai": "^2.3.0",
     "lodash": "^3.8.0",
-    "q": "^1.4.0"
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
