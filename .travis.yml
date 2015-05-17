@@ -1,4 +1,16 @@
 language: node_js
 node_js:
-  - "0.11"
   - "0.10"
+  - "0.12"
+
+#env:
+#  CODECLIMATE_REPO_TOKEN: <your_token>
+
+before_script:
+  - npm install -g istanbul
+  - npm install -g mocha
+  - npm install -g codeclimate-test-reporter
+
+after_success:
+  - istanbul cover _mocha -- -R base ./test/**/*.spec.js
+#  - codeclimate < ./coverage/lcov.info
