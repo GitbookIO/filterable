@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "mocha": "^2.2.5",
+    "mongoose": "^4.0.3",
     "object-hash": "^0.8.0"
   },
   "repository": {
