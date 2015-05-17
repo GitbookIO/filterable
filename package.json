@@ -1,34 +1,43 @@
 {
-    "name": "filterable",
-    "version": "1.0.0",
-    "main": "lib/index.js",
-    "author": {
-        "name": "Samy Pessé",
-        "email": "samy@gitbook.com"
-    },
-    "description": "Parse GitHub-like search queries",
-    "bugs": {
-        "url": "https://github.com/GitbookIO/filterable/issues"
-    },
-    "engines": {
-        "node": ">=0.6"
-    },
-    "dependencies": {
-        "lodash": "2.4.1",
-        "q": "1.1.2"
-    },
-    "devDependencies": {
-        "mocha": "1.18.2",
-        "object-hash": "0.4.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/GitbookIO/filterable.git"
-    },
-    "scripts": {
-        "test": "mocha --reporter list"
-    },
-    "keywords": [
-        "github", "mongoose", "mongodb", "search", "filter", "query"
-    ]
+  "name": "filterable",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Samy Pessé",
+    "email": "samy@gitbook.com"
+  },
+  "description": "Parse GitHub-like search queries",
+  "bugs": {
+    "url": "https://github.com/GitbookIO/filterable/issues"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "dependencies": {
+    "chai": "^2.3.0",
+    "deasync": "0.0.10",
+    "lodash": "^3.8.0",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "mongoose": "^4.0.3",
+    "object-hash": "^0.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GitbookIO/filterable.git"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha"
+  },
+  "keywords": [
+    "github",
+    "mongoose",
+    "mongodb",
+    "search",
+    "filter",
+    "query"
+  ]
 }
