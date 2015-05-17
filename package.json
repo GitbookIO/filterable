@@ -26,7 +26,8 @@
     "url": "https://github.com/GitbookIO/filterable.git"
   },
   "scripts": {
-    "test": "mocha --reporter list"
+    "test": "./node_modules/mocha/bin/mocha",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "keywords": [
     "github",
