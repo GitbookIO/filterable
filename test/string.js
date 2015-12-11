@@ -9,7 +9,7 @@ function assertQuery(q, opts, out) {
     assert.deepEqual(filterable.Query(q, opts).parse().toString(), out);
 }
 
-describe.only('Query#toString', function() {
+describe('Query#toString', function() {
     it('can convert =', function() {
         assertQuery("name:Samy", 'name:"Samy"');
     });
