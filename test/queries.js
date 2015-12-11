@@ -253,4 +253,64 @@ describe('Queries', function(done) {
       });
 
     });
+
+    describe('with "is:" operator', function() {
+
+      it('can handle "is:" for Booleans', function(done) {
+          testQuery('is:published',
+          {
+            "published": true
+          }, done);
+      });
+
+      it('can handle "NOT is:" for Booleans', function(done) {
+          testQuery('NOT is:published',
+          {
+            "published": false
+          }, done);
+      });
+
+      it('can handle "is:" for Booleans with "alias"', function(done) {
+          testQuery('is:admin',
+          {
+            "isAdmin": true
+          }, done);
+      });
+
+      it('can handle "NOT is:" for Booleans with "alias"', function(done) {
+          testQuery('NOT is:admin',
+          {
+            "isAdmin": false
+          }, done);
+      });
+
+      it('can handle "is:" with "query" (String)', function(done) {
+          testQuery('is:male',
+          {
+            "gender": "male"
+          }, done);
+      });
+
+      it('can handle "NOT is:" with "query" (String)', function(done) {
+          testQuery('NOT is:male',
+          {
+            "gender": { "$ne": "male" }
+          }, done);
+      });
+
+      it('can handle "is:" with "query" (Number)', function(done) {
+          testQuery('is:minor',
+          {
+            "age": { "$lt": 18 }
+          }, done);
+      });
+
+      it('can handle "NOT is:" with "query" (Number)', function(done) {
+          testQuery('NOT is:minor',
+          {
+            "age": { "$gte": 18 }
+          }, done);
+      });
+
+    });
 });
