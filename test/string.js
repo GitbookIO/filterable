@@ -14,6 +14,10 @@ describe('Query#toString', function() {
         assertQuery("name:Samy", 'name:"Samy"');
     });
 
+    it('can convert = (multiple)', function() {
+        assertQuery("name:\"Samy Pesse\"", 'name:"Samy Pesse"');
+    });
+
     it('can convert =', function() {
         assertQuery("NOT name:Samy", 'NOT name:"Samy"');
     });
