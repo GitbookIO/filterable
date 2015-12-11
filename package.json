@@ -15,8 +15,7 @@
         "node": ">=0.12"
     },
     "dependencies": {
-        "lodash": "^3.10.1",
-        "equery": "0.2.0"
+        "lodash": "^3.10.1"
     },
     "devDependencies": {
         "mocha": "2.3.4",
