@@ -56,4 +56,14 @@ describe('Query#parse', function() {
             }
         ]);
     });
+
+    it('can detect complete queries', function() {
+        var q = filterable.Query('followers:>=100').parse();
+        assert.equal(q.isComplete(), true);
+    });
+
+    it('can detect non-complete queries', function() {
+        var q = filterable.Query('followers:>=100 invalid:test', { rejected: ['invalid'] }).parse();
+        assert.equal(q.isComplete(), false);
+    });
 });

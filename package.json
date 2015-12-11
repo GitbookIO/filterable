@@ -25,7 +25,7 @@
         "url": "https://github.com/GitbookIO/filterable.git"
     },
     "scripts": {
-        "test": "mocha --reporter list"
+        "test": "mocha --reporter list --bail"
     },
     "keywords": [
         "github", "mongoose", "mongodb", "search", "filter", "query", "elasticsearch"
