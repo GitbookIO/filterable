@@ -41,7 +41,6 @@ Output query for a database:
 
 ```js
 var mongQuery = query.toMongo();
-var elasticQuery = query.toElasticsearch();
 ```
 
 Filter and customize queries using `QueryBuilder`:
