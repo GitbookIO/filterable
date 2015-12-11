@@ -26,4 +26,7 @@ describe('Query#toString', function() {
         assertQuery("Hello World", 'Hello World');
     });
 
+    it('can convert numbers operation', function() {
+        assertQuery("stars:>10", 'stars:>10');
+    });
 });
