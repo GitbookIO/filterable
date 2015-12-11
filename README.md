@@ -52,6 +52,14 @@ var builder = filterable.QueryBuilder({
     textField: 'description'
 });
 
+// Define mapping, by default all fields are accepted and piped as string
+builder.field('stars', {
+    type: Number
+});
+
+// Reject a field
+builder.reject('email');
+
 
 // Parse queries (return a Query object)
 var q1 = builder.parse('Hello world')

@@ -7,7 +7,18 @@ function assertQuery(q, out) {
 
 describe('Query#parse', function() {
 
-    it('can convert = with quotation marks', function() {
+    it('can parse =', function() {
+        assertQuery('name:"Samy"', [
+            {
+                type: '=',
+                field: 'name',
+                value: 'Samy',
+                originalField: 'name'
+            }
+        ]);
+    });
+
+    it('can parse = with quotation marks', function() {
         assertQuery('name:"Samy Pesse"', [
             {
                 type: '=',
@@ -18,4 +29,31 @@ describe('Query#parse', function() {
         ]);
     });
 
+    it('can convert NOT', function() {
+        assertQuery("NOT name:Samy", [
+            {
+                type: '!=',
+                field: 'name',
+                value: 'Samy',
+                originalField: 'name'
+            }
+        ]);
+    });
+
+    it('can convert NOT (only next condition)', function() {
+        assertQuery("NOT name:Samy followers:10",[
+            {
+                type: '!=',
+                field: 'name',
+                value: 'Samy',
+                originalField: 'name'
+            },
+            {
+                type: '=',
+                field: 'followers',
+                value: '10',
+                originalField: 'followers'
+            }
+        ]);
+    });
 });
