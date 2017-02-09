@@ -5,7 +5,7 @@
 
 Filterable is a Node.JS module to parse [GitHub-like search queries](https://help.github.com/articles/search-syntax/), for example: `cats stars:>10`. It can generate MongoDB or Elasticsearch queries.
 
-This module is perfect to integrate complex search (like GitHub) into your application. It integrates perfectly with MongoDB but can also easily be adapted to other databases.
+This module is perfect for integrating complex search (like GitHub search) into your application. It integrates perfectly with MongoDB but can also easily be adapted to other databases.
 
 ### Queries
 
